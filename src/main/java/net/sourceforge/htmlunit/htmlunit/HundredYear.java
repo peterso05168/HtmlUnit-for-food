@@ -36,30 +36,57 @@ public class HundredYear {
 	       
 	        for (int i = 2; i < FxTableRow.size(); i++) {
 				ArrayList<String> tempDetail = new ArrayList<>();
+				int rs = 0;
 				String[] requiredDataField = FxTableRow.get(i).asText().split("\\s+");
 				for (int j = 0; j < 4; j++) {
 					 tempDetail.add(requiredDataField[j]);
 				}
 				
 				if (tempDetail.get(0).contains("USD")) {
-					pst.setDouble(1, Double.parseDouble(tempDetail.get(1)));
-					pst.setDouble(2, Double.parseDouble(tempDetail.get(2)));
 					pst.setInt(3, 1);
 				}else if (tempDetail.get(0).contains("EUR")) {
-					pst.setDouble(1, Double.parseDouble(tempDetail.get(1)));
-					pst.setDouble(2, Double.parseDouble(tempDetail.get(2)));
 					pst.setInt(3, 2);
 				}else if (tempDetail.get(0).contains("GBP")) {
-					pst.setDouble(1, Double.parseDouble(tempDetail.get(1)));
-					pst.setDouble(2, Double.parseDouble(tempDetail.get(2)));
 					pst.setInt(3, 3);
+				}else if (tempDetail.get(0).contains("JPY")) {
+					pst.setInt(3, 4);
+				}else if (tempDetail.get(0).contains("SGD")) {
+					//pst.setInt(3, 5);
+				}else if (tempDetail.get(0).contains("AUD")) {
+					pst.setInt(3, 6);
+				}else if (tempDetail.get(0).contains("NZD")) {
+					pst.setInt(3, 7);
+				}else if (tempDetail.get(0).contains("CHF")) {
+					pst.setInt(3, 8);
+				}else if (tempDetail.get(0).contains("CAD")) {
+					pst.setInt(3, 9);
+				}else if (tempDetail.get(0).contains("MYR")) {
+					pst.setInt(3, 10);
+				}else if (tempDetail.get(0).contains("TWD")) {
+					//pst.setInt(3, 11);
+				}else if (tempDetail.get(0).contains("CNY")) {
+					pst.setInt(3, 12);
+				}else if (tempDetail.get(0).contains("PHP")) {
+					pst.setInt(3, 13);
+				}else if (tempDetail.get(0).contains("THB")) {
+					pst.setInt(3, 14);
+				}else if (tempDetail.get(0).contains("INR")) {
+					pst.setInt(3, 15);
+				}else if (tempDetail.get(0).contains("KRW")) {
+					pst.setInt(3, 16);
+				}else if (tempDetail.get(0).contains("IDR")) {
+					pst.setInt(3, 17);
 				}else {
 					return;
 				}
 				
-				pst.setInt(4, 1);
+				try {
+					pst.setDouble(1, Double.parseDouble(tempDetail.get(1)));
+					pst.setDouble(2, Double.parseDouble(tempDetail.get(2)));
+					pst.setInt(4, 1);
+					rs = pst.executeUpdate();
+				}catch (Exception e) {}
 				
-				int rs = pst.executeUpdate();
 				if (rs == 0) {
 					System.err.println("Failed to UPDATE: " + tempDetail.get(0));
 				}else {
@@ -69,7 +96,7 @@ public class HundredYear {
 			webClient.close();
 		} catch (Exception e) {
 			webClient.close();
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 			//System.out.println("Fail to get HundredYear Fx Data");
 		}
 	}
