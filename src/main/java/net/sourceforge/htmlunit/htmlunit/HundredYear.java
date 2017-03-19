@@ -28,7 +28,7 @@ public class HundredYear {
 			final HtmlPage page = webClient.getPage("http://bcel1985.blogspot.hk/");
 			HtmlElement firstLink = page.querySelector("#Blog1 > div.blog-posts.hfeed > div:nth-child(1) > div > div > div > h3 > a");
 			HtmlPage OneHundredYear = firstLink.click();
-			HtmlTable FxTable = OneHundredYear.querySelector("#post-body-2303306006605946796 > table");
+			HtmlTable FxTable = OneHundredYear.querySelector("table");
 			List<HtmlTableRow> FxTableRow = FxTable.getRows();
 			Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
 	        Connection conn = DriverManager.getConnection("jdbc:mysql://119.246.135.3:3306/FxExchange?" + "user=" + MysqlConst.account + "&password=" + MysqlConst.passwd);    
