@@ -1,11 +1,11 @@
 package net.sourceforge.htmlunit.htmlunit;
 
-public class App {
+public class Fx {
 	public static void main(String[] args) {
 		//Getting Fx Data from different FxExchange.
 		
-		//HundredYear hundredYear = new HundredYear();
-		//hundredYear.getData();
+		HundredYear hundredYear = new HundredYear();
+		hundredYear.getData();
 		
 		//NgauKee ngauKee = new NgauKee();
 		//ngauKee.getData();
@@ -13,7 +13,7 @@ public class App {
 		//Shengen shengen = new Shengen();
 		//shengen.getData();
 		
-		Xushi xushi = new Xushi();
-		xushi.getData();
+//		Xushi xushi = new Xushi();
+//		xushi.getData();
 	}
 }

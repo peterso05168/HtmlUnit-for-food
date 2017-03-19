@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="D:/WorkSpace/htmlunit/lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="D:/WorkSpace/htmlunit/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="D:/WorkSpace/htmlunit/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="D:/WorkSpace/lib/mysql-connector-java-5.1.41-bin.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -24,7 +24,7 @@ public class Xushi {
 			for (int i = 2; i < FxTableRow.size(); i++) {
 				String[] requiredDataField = FxTableRow.get(i).asText().split("\\s+");
 				for (int j = 0; j < 4; j++) {
-					System.out.println(requiredDataField[j]);					
+					System.out.println(requiredDataField[j]);				
 				}
 			}			
 			webClient.close();
